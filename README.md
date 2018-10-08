@@ -1,13 +1,18 @@
 # BrandFeelingBackEnd
 
-Representation of the back end system on Brand Feeling old version, this was the core of the system, it is responsible for making the data analysis of the text data retrieved from social networks and retrieve this data to the redundacy unit.\\
-The part works in the way that several* threads are started for the Text mining (leitura), text filtering (filtragem) and finally data analysis (analise).\\
-They all work together at the same time using synchronized functions to maximize the system's performance.\\
-The system used to recieve the call to start the process from the RMI control unit.\\
-Some parts were changed, and some libraries are not imported to maintain the system's privacy.\\
+Representation of the back end system on Brand Feeling old version, this was the core of the system, it is responsible for making the data analysis of the text data retrieved from social networks and retrieve this data to the redundacy unit
+
+The part works in the way that several* threads are started for the Text mining (leitura), text filtering (filtragem) and finally data analysis (analise).
+
+They all work together at the same time using synchronized functions to maximize the system's performance.
+
+The system used to recieve the call to start the process from the RMI control unit.
+
+Some parts were changed, and some libraries are not imported to maintain the system's privacy.
 
 
-* the number of treads for each part is estimated based on the period (each day corresponds to one more tread).\\
+* the number of treads for each part is estimated based on the period (each day corresponds to one more tread).
+
 
 Packages:
 

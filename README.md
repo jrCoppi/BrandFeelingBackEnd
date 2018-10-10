@@ -21,3 +21,5 @@ Packages:
  - Leitura: Text mine the social network data, and pass the rought data to the next part of the process\\
  - Filtragem: Filter the data, separating the actual text the users sent from the HTML, also apply some technics to clean noises on the text\\
  - Analise :  Makes the sentimental analysis based on the text filtered previously, defines the text value based on some algorithm
+ 
+Each of the backend instances is called by the reddundancy system (https://github.com/jrCoppi/BrandFeelingRedundancy) and also recieves the user input from the front end system (https://github.com/jrCoppi/BrandFeelingFrontEnd).

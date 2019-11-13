@@ -35,19 +35,10 @@ public class AnaliseTipo extends Thread {
     public AnaliseTipo(Controle controle) {
         this.controle = controle;      
         this.listaIgnorar = new HashMap<>();
-        this.populaListaIgnorar();
         //Inicia a classe de steming
         this.wordnet = new WordNet();
     }
     
-    private void populaListaIgnorar(){
-       String[] listaIgnorarArray = 
-       {"it’s","this"};
-       
-        for (String palavra : listaIgnorarArray) {
-            this.listaIgnorar.put(palavra, palavra);
-        }
-    }
 
     @Override
     public void run(){
@@ -66,15 +57,15 @@ public class AnaliseTipo extends Thread {
             while((termoAnalise = this.controle.getProximoTermoTratar()) != null){
                 //....
                 
-                if(this.termoNaLista(termoAnalise.getTermo()) == false){
-                    //Faz a lematização caso seja um tipo 
-                    if(tipo != ""){
-                        termoNovo = this.getWordnet().getRadicalPalavra(termoAnalise.getTermo(), tipo.charAt(0));
-                        //...
-                        termoAnalise.setTermo(termoNovo);
-   
-                    }
+
+                //Faz a lematização caso seja um tipo 
+                if(tipo != ""){
+                    termoNovo = this.getWordnet().getRadicalPalavra(termoAnalise.getTermo(), tipo.charAt(0));
+                    //...
+                    termoAnalise.setTermo(termoNovo);
+
                 }
+
 
                 this.controle.adicionaTermo(termoAnalise.getMarca(), termoAnalise.getTermo(), tipo);
             }
@@ -95,8 +86,5 @@ public class AnaliseTipo extends Thread {
         
         return termo;
     }
-    
-    private boolean termoNaLista(String termo){
-        return (this.listaIgnorar.get(termo.toLowerCase()) != null);
-    }
+
 }

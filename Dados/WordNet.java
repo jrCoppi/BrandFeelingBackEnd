@@ -47,10 +47,6 @@ public class WordNet {
             return palavra;
         }
         
-        if(stems.isEmpty()){
-           return retorno; 
-        }
-        
         for (int i = 0; i < stems.size(); i++) {
             retorno = stems.get(i);
         }
@@ -60,17 +56,16 @@ public class WordNet {
     
     private POS getPosFromChar(char tipo){
         switch(tipo){
-            case 'v': {
+            case 'n': {
                 return POS.VERB;
             }
-            case 'n': {
+            case 's': {
                 return POS.NOUN;
             }
-            case 's' :
             case 'a': {
                 return POS.ADJECTIVE;
             }
-            case 'r' : {
+            case 'v' : {
                 return POS.ADVERB;
             }
         }

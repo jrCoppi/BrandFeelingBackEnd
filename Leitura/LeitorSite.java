@@ -106,16 +106,11 @@ public class LeitorSite extends Thread {
         str = str.replaceAll(regexHtmlEntites, "");        
         str = str.replaceAll("\t", "");
         str = str.replaceAll("\n", "");
-        str = str.replaceAll("\\...", "");
         str = str.replaceAll(":", "");
         str = str.replaceAll(";", "");
         str = str.replaceAll("\\.", "");
         //str = str.replaceAll("/", "");
-        str = str.replaceAll("\\}", "");
-        str = str.replaceAll("\\{", "");
-        str = str.replaceAll("\\)", "");
-        str = str.replaceAll("\\(", "");
-        
+        //...
         return str.trim();
     }
     

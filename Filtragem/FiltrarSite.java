@@ -118,16 +118,13 @@ public class FiltrarSite extends Thread  {
         str = str.replaceAll(":", "");
         str = str.replaceAll(";", "");
         str = str.replaceAll(",", "");
-        str = str.replaceAll("\\.", "");
-        str = str.replaceAll("-", "");
-        str = str.replaceAll("#", "");//hashtag
-        str = str.replaceAll("\\?", "");//
+        //...
         return str.trim();
     }
     
+    //alterado
     private String removeHtml(String str){
-        String regexTags = "<(.+?)>";
-        return str.replaceAll(regexTags, "");
+        return str;
     } 
     //alterado
     private String removeUsers(String str){

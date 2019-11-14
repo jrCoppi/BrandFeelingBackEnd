@@ -129,7 +129,7 @@ public class Controle {
     public synchronized Post getProximoPost(){
         Post retorno = null;
        
-        while(this.estadoLeitura == 0 || (this.getListaPostagem().isEmpty() && this.estadoLeitura == 1)){
+        while(this.getListaPostagem().isEmpty()){
            try {
                 wait();
            } catch (InterruptedException ex) {
@@ -162,7 +162,7 @@ public class Controle {
     public synchronized TermoAnalise getProximoTermoTratar(){
         TermoAnalise retorno = null;
        
-        while(this.estadoLeitura == 0 || (this.listaTermosTratar.isEmpty() && this.estadoLeitura == 1)){
+        while(this.listaTermosTratar.isEmpty()){
            try {
                 wait();
            } catch (InterruptedException ex) {
@@ -187,9 +187,8 @@ public class Controle {
     
     // Adiciona um novo termo ou aumenta o numero de oc, avisa que tem novo termo
     public synchronized void adicionaTermo(String marca, String termo, String tipo){   
-        if(this.getHashTermos().get(termo) == null){
-            this.getHashTermos().put(termo, new Termo(termo));
-        }
+        this.getHashTermos().put(termo, new Termo(termo));
+
         
         notifyAll();
     }
